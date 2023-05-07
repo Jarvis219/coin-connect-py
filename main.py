@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.wsgi_app = middleware(app.wsgi_app)
 
 
-@app.route('/list-coin')
+@app.route('/api/list-coin')
 def list_coin():
     headers = {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ def list_coin():
         return jsonify({"message": "Error"})
 
 
-@app.route('/top-coins')
+@app.route('/api/top-coins')
 def top_coins():
     top_coins = []
 
@@ -43,7 +43,7 @@ def top_coins():
         return jsonify({"message": "Error"})
 
 
-@app.route('/coin-by-symbol')
+@app.route('/api/coin-by-symbol')
 def coin_by_symbol():
     data = json.loads(request.get_data())
 
